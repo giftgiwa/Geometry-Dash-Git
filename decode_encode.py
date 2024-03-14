@@ -16,10 +16,10 @@ class CCLocalLevels:
         self.get_CCLocalLevels()
         self.CCLocalLevels_decrypted = self.decrypt(self.CCLocalLevels_encrypted)
 
-        # print("original CCLocalLevels: " + self.CCLocalLevels_encrypted[0:200])
-        # print("CCLocalLevels decrypted: " + self.CCLocalLevels_decrypted[0:200])
-        # print("CCLocalLevels re-encrypted once: " + self.encrypt(self.CCLocalLevels_decrypted)[0:200])
-        # print("CCLocalLevels decrypted: " + self.decrypt(self.encrypt(self.CCLocalLevels_decrypted))[0:200])
+        # (for testing purposes) write the decrypted CCLocalLevels to a text file
+        f = open("CCLocalLevels.txt", "w")
+        f.write(self.CCLocalLevels_decrypted)
+        f.close()
 
         # decrypting then encrypting CCLocalLevels indefinitely leaves the decrypted version intact
         assert(self.decrypt(self.encrypt(self.CCLocalLevels_decrypted))[0:200] == self.CCLocalLevels_decrypted[0:200])
@@ -89,6 +89,6 @@ class CCLocalLevels:
         return xor(base64_encoded.decode(), key=11)
 
 
-if __name__ == '__main__':
-    level = CCLocalLevels()
+# if __name__ == '__main__':
+    # level = CCLocalLevels()
     # print(level.CCLocalLevels_encrypted)
