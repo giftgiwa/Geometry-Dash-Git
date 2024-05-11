@@ -61,7 +61,7 @@ class CCLocalLevels:
         CCLocalLevels_path = ""
         for root, dirs, files in os.walk(home):
 
-            print(root)
+            # print(root)
             # print("Files in this directory: " + files)
             for file in files: 
                 if (file.endswith("CCLocalLevels.dat") and root.endswith("GeometryDash")):
